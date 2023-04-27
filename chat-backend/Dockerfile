@@ -1,5 +1,8 @@
 FROM php:8.1.9-fpm-alpine
 
+ARG TZ=UTC
+ENV TZ=Asia/Yangon
+
 RUN apk add --no-cache \
     curl \
     libzip-dev \
