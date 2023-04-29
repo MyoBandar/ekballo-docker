@@ -1,0 +1,21 @@
+version: "3.8"
+
+networks:
+  app_network:
+    driver: bridge
+
+services:
+  chat_frontend:
+    container_name: ${COMPOSE_PROJECT_NAME}_frontend
+    image: ekballo_chat_frontend
+    hostname: chat_frontend
+    ports:
+      - ${FRONT_HOST_PORT}:${CONTAINER_NUXT_PORT}
+    volumes:
+      - ${FRONT_SRC_PATH_HOST}:/usr/src/chat-frontend
+    environment:
+      - NUXT_HOST=0.0.0.0
+      - NUXT_PORT=${CONTAINER_NUXT_PORT}
+    networks:
+      - app_network
+    tty: true

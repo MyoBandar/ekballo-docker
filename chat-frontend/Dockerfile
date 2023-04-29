@@ -3,11 +3,18 @@ FROM node:17-alpine
 ARG TZ=UTC
 ENV TZ=Asia/Yangon
 
-RUN apk update && \
+RUN mkdir -p /usr/src/chat-frontend
+
+WORKDIR /usr/src/chat-frontend
+
+RUN apk update && apk upgrade && \
     apk add --no-cache python3 make g++
 
-COPY package*.json ./
+COPY package*.json /usr/src/chat-frontend/
 
 RUN npm install
 
-WORKDIR /usr/src/app
+RUN npm run build
+
+
+
