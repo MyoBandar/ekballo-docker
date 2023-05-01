@@ -22,4 +22,4 @@ RUN composer install
 
 RUN rm -rf *
 
-WORKDIR /var/www/html
+WORKDIR /usr/src/chat-backend

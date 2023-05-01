@@ -15,6 +15,3 @@ COPY package*.json /usr/src/chat-frontend/
 RUN npm install
 
 RUN npm run build
-
-
-
