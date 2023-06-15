@@ -44,6 +44,6 @@ $ composer install
 ```
 - Start the service:
 ```bash
-$ php -S 0.0.0.0:8000 -t public
+$ php artisan serve --host 0.0.0.0
 ```
 
